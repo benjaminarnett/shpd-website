@@ -1,0 +1,128 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <title>References</title>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/3.4.1/css/bootstrap.min.css">
+    <link rel="stylesheet" href="style.css" type="text/css">
+    <script>
+        // comments are above corresponding code
+
+        // checks if geolocation is supported and call getCurrentPosition
+        function start() {
+            // if geolocation is supported
+            if (navigator.geolocation) {
+                /* call getCurrentPosition function, prompts user to allow access to location data, 
+                   returns location information */
+                navigator.geolocation.getCurrentPosition(user_location);
+            }
+        }
+
+        /* callback function, 1 input parameter being a position object
+           function gets longitude and latitude info and displays it in div element */
+        function user_location(position) {
+            // latitude data stored in lat variable
+            var lat = position.coords.latitude;
+            // longitude data stored in long variable
+            var long = position.coords.longitude;
+            // fills text of element with id='user-location' with latitude and longitude information from variables declared above
+            document.getElementById('user-location').innerHTML = "Latitude: " + lat + ", Longitude: " + long;
+        }
+
+        // applies styling and content changes to span id="law" when cursor moves over element
+        function mouseOver(e) {
+            // if element has id="law"
+            if (e.target.getAttribute("id") == "law") {
+                // change element's background color to yellow
+                e.target.setAttribute("style", "background-color:yellow;");
+                // change element's content with 'regulations' text
+                e.target.innerHTML = "regulations";
+            }
+        }
+
+        // applies styling and content changes to span id="law" when cursor exits element
+        function mouseOut(e) {
+            // if element has id="law"
+            if (e.target.getAttribute("id") == "law") { 
+                // change element's background color to none
+                e.target.setAttribute("style", "background-color:none;");
+                // change element's content with 'laws' text
+                e.target.innerHTML = "laws";
+            }
+
+        }
+
+        // runs user_location function when page is loaded
+        window.addEventListener("load", start, false);
+        // runs mouseOver function when user's cursor goes over element
+        window.addEventListener("mouseover", mouseOver, false);
+        // runs mouseOut function when user's cursor exits element
+        window.addEventListener("mouseout", mouseOut, false);
+    </script>
+</head>
+
+<body>
+    <div class="container">
+        <nav>
+            <ul>
+                <li><a href="index.html">Home</a></li>
+                <li><a href="about.html">About</a></li>
+                <li><a href="play.html">How I Play</a></li>
+                <li><a href="bosses.html">Bosses</a></li>
+                <li><a href="resources.html">Resources</a></li>
+                <li><a href="references.html">References</a></li>
+            </ul>
+        </nav>
+        <h1 class="heading">References</h1>
+        <div id="references">
+            <div id="shpd-title"><i>SHPD Title</i>. Shattered Pixel. <a
+                    href="https://shatteredpixel.com/assets/images/SHPD-title.png">https://shatteredpixel.com/assets/images/SHPD-title.png</a>
+            </div>
+            <br>
+            <div id="mage-img"><i>Mage</i>. Pixel Dungeon Wiki. <a
+                    href="https://static.wikia.nocookie.net/pixeldungeon/images/2/20/Mage.png">https://static.wikia.nocookie.net/pixeldungeon/images/2/20/Mage.png</a>
+            </div>
+            <br>
+            <div id="horn-img"><i>Horn of Plenty</i>. Pixel Dungeon Wiki. <a
+                    href="https://static.wikia.nocookie.net/pixeldungeon/images/e/ec/Horn_of_Plenty.png">https://static.wikia.nocookie.net/pixeldungeon/images/e/ec/Horn_of_Plenty.png</a>
+            </div>
+            <br>
+            <div id="github-logo"><i>Github Mark</i>. Github. <a
+                    href="https://github.com/logos">https://github.com/logos</a></div>
+            <br>
+            <div id="avatar"><i>Evan Debenham Avatar</i>. Github. <a
+                    href="https://avatars.githubusercontent.com/u/2347603?v=4">https://avatars.githubusercontent.com/u/2347603?v=4</a>
+            </div>
+            <br>
+            <div id="shpd-logo"><i>SHPD Logo</i>. Pixel Dungeon Wiki. <a
+                    href="https://static.wikia.nocookie.net/pixeldungeon/images/0/0c/Shattered_PD_logo.png">https://static.wikia.nocookie.net/pixeldungeon/images/0/0c/Shattered_PD_logo.png</a>
+            </div>
+            <br>
+            <div><i>Goo</i>. Pixel Dungeon Wiki. <a href="https://static.wikia.nocookie.net/pixeldungeon/images/c/cf/Goo-Shattered.gif">https://static.wikia.nocookie.net/pixeldungeon/images/c/cf/Goo-Shattered.gif</a></div>
+            <br>
+            <div><i>Tengu</i>. Pixel Dungeon Wiki. <a href="https://static.wikia.nocookie.net/pixeldungeon/images/7/7d/Tengu-Shattered.gif">https://static.wikia.nocookie.net/pixeldungeon/images/7/7d/Tengu-Shattered.gif</a></div>
+            <br>
+            <div><i>DM-300</i>. Pixel Dungeon Wiki. <a href="https://static.wikia.nocookie.net/pixeldungeon/images/a/ab/DM-300_shattered_gif.gif">https://static.wikia.nocookie.net/pixeldungeon/images/a/ab/DM-300_shattered_gif.gif</a></div>
+            <br>
+            <div><i>Dwarf King</i>. Pixel Dungeon Wiki. <a href="https://static.wikia.nocookie.net/pixeldungeon/images/0/03/Dwarf_King_gif.gif">https://static.wikia.nocookie.net/pixeldungeon/images/0/03/Dwarf_King_gif.gif</a></div>
+            <br>
+            <div><i>Yog Dzewa</i>. Pixel Dungeon Wiki. <a href="https://static.wikia.nocookie.net/pixeldungeon/images/6/62/Yog_Dzewa_gif.gif">https://static.wikia.nocookie.net/pixeldungeon/images/6/62/Yog_Dzewa_gif.gif</a></div>
+        </div>
+        <br>
+        <br>
+        <br>
+        <br>
+        <div>Be aware of <span id="law">laws</span> regarding intellectual property in your area</div>
+        <div id="user-location"></div>
+        <div class="footer">
+            <p>This website is developed as an educational project</p>
+            <p>Certain materials are included under the fair use exemption of the U.S. Copyright Law and have been
+                prepared according to the multimedia fair use guidelines and are restricted from further use</p>
+            <a href="style.css">stylesheet code</a>
+        </div>
+    </div>
+</body>
+
+</html>

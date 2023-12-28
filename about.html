@@ -1,0 +1,150 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:spry="http://ns.adobe.com/spry">
+
+<head>
+    <title>About</title>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/3.4.1/css/bootstrap.min.css">
+    <link rel="stylesheet" href="style.css" type="text/css">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.7.1/jquery.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery-validate/1.19.1/jquery.validate.min.js"></script>
+	<script src="SpryAssets/SpryData.js" type="text/javascript"></script>
+	<script src="SpryAssets/xpath.js" type="text/javascript"></script>
+    <script type="text/javascript">
+        // link to xml file
+        var dsClass = new Spry.Data.XMLDataSet("classes.xml", "classes/class");
+    </script>
+</head>
+
+<body>
+    <div class="container">
+        <nav>
+            <ul>
+                <li><a href="index.html">Home</a></li>
+                <li><a href="about.html">About</a></li>
+                <li><a href="play.html">How I Play</a></li>
+                <li><a href="bosses.html">Bosses</a></li>
+                <li><a href="resources.html">Resources</a></li>
+                <li><a href="references.html">References</a></li>
+            </ul>
+        </nav>
+        <h1 class="heading">About</h1>
+        <ul class="menu">
+            <li><a href="#hero-classes">Hero Classes</a></li>
+            <li><a href="#equipment">Equipment</a></li>
+            <li><a href="#survey">Game Survey</a></li>
+        </ul>
+        <h3 id="hero-classes">Hero Classes</h3>
+        
+        <div spry:region="dsClass">
+            <table id="classes">
+                <tr>
+                    <th>Name</th>
+                    <th>Unique Item</th>
+                    <th>Subclass 1</th>
+                    <th>Subclass 2</th>
+                </tr>
+                <tr spry:repeat="dsClass">
+                    <td>{name}</td>
+                    <td>{item}</td>
+                    <td>{sub1}</td>
+                    <td>{sub2}</td>
+                </tr>
+            </table>
+        </div>
+
+        <h3 id="equipment">Equipment</h3>
+        <ul id="equip">
+            <li>Weapons</li>
+            <li>Armor</li>
+            <li>Missile Weapons</li>
+            <li>Wands</li>
+            <li>Rings</li>
+            <li>Artifacts</li>
+            <li>Enchantments</li>
+            <li>Curses</li>
+        </ul>
+        <h3 id="survey">Game survey</h3>
+        <form id="player-form" method="get" action=""> <!-- autocomplete="on"  -->
+            <fieldset>
+                <legend>Hero class</legend>
+                <select name="class" id="class" required>
+                    <option value="" selected disabled hidden>– Choose One –</option>
+                    <option value="Warrior">Warrior</option>
+                    <option value="Mage">Mage</option>
+                    <option value="Rogue">Rogue</option>
+                    <option value="Huntress">Huntress</option>
+                    <option value="Duelist">Duelist</option>
+                </select>
+            </fieldset>
+            <fieldset>
+                <legend>Preferred item from shopkeeper</legend>
+                <input list="items" name="item" id="item" placeholder="Select your prederred item:" required>
+                <datalist id="items">
+                    <option value="Ankh">
+                    <option value="Bomb">
+                    <option value="Honeypot">
+                    <option value="Arcane Stylus">
+                    <option value="Torch">
+                    <option value="Ration of Food">
+                    <option value="Unknown Scroll">
+                </datalist>
+            </fieldset>
+            <fieldset>
+                <legend>Badges Earned</legend>
+                <div>
+                    <input type="checkbox" id="badge1" name="badge1">
+                    <label for="badge1">1st boss slain</label>
+                </div>
+                <div>
+                    <input type="checkbox" id="badge2" name="badge2">
+                    <label for="badge2">Death from fire</label>
+                </div>
+                <div>
+                    <input type="checkbox" id="badge3" name="badge3">
+                    <label for="badge3">500 gold collected</label>
+                </div>
+                <div>
+                    <input type="checkbox" id="badge4" name="badge4">
+                    <label for="badge4">50 enemies slain</label>
+                </div>
+            </fieldset>
+            <fieldset>
+                <legend>Have beaten the game?</legend>
+                <input type="radio" id="yes" name="yes" value="yes">
+                <label for="yes">Yes</label><br>
+                <input type="radio" id="no" name="no" value="no">
+                <label for="no">No</label>
+            </fieldset>
+            <fieldset>
+                <legend>Comments on game</legend>
+                <textarea id="comments" name="comments" rows="4" cols="50" required></textarea>
+            </fieldset>
+            <fieldset>
+                <legend>Rating (1-5)</legend>
+                <input type="range" name="rating" id="rating" min="1" max="5" step="1" value="1">
+                <output class="rating-output" for="rating"></output><br>
+            </fieldset>
+            <fieldset>
+                <legend>Last played</legend>
+                <input type="datetime-local" id="last-played" name="last-played" value="2018-06-12T19:30"
+                    min="2000-06-07T00:00" max="2050-06-14T00:00">
+            </fieldset>
+            <input type="submit" value="Submit">
+            <input type="reset">
+        </form>
+        <div class="footer">
+            <p>This website is developed as an educational project</p>
+            <p>Certain materials are included under the fair use exemption of the U.S. Copyright Law and have been
+                prepared according to the multimedia fair use guidelines and are restricted from further use</p>
+            <a href="style.css">stylesheet code</a>
+        </div>
+    </div>
+    <script>
+        // validates form elements via the jQuery Validation Plugin
+        $("#player-form").validate();
+    </script>
+</body>
+
+</html>

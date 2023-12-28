@@ -1,0 +1,107 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <title>Bosses</title>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/3.4.1/css/bootstrap.min.css">
+    <link rel="stylesheet" href="style.css" type="text/css">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.7.1/jquery.min.js"></script>
+    <script>
+        // comments are above corresponding code
+
+        // variable holds XMLHttpRequest object
+        var xhr = new XMLHttpRequest();
+
+        // stores event listeners that trigger the sending of request
+        function registerListeners() {
+            var img;
+            // stores element object in img
+            img = document.getElementById("boss1")
+            // when mouseover occurs, execute getContent function
+            img.addEventListener("mouseover", function(){ getContent("assets/bosses/Goo.webp"); }, false);
+            // when mouseover occurs, execute clearContent function 
+            img.addEventListener("mouseout", clearContent, false);
+
+            img = document.getElementById("boss2")
+            img.addEventListener("mouseover", function(){ getContent("assets/bosses/Tengu.webp"); }, false);
+            img.addEventListener("mouseout", clearContent, false);
+
+            img = document.getElementById("boss3")
+            img.addEventListener("mouseover", function(){ getContent("assets/bosses/DM-300.webp"); }, false);
+            img.addEventListener("mouseout", clearContent, false);
+
+            img = document.getElementById("boss4")
+            img.addEventListener("mouseover", function(){ getContent("assets/bosses/Dwarf_King.webp"); }, false);
+            img.addEventListener("mouseout", clearContent, false);
+
+            img = document.getElementById("boss5")
+            img.addEventListener("mouseover", function(){ getContent("assets/bosses/Yog_Dzewa.webp"); }, false);
+            img.addEventListener("mouseout", clearContent, false);
+        }
+
+        // sends request after event fires
+        function getContent(url) {
+            try {
+                // create request object
+                xhr = new XMLHttpRequest();
+                // register event handler
+                xhr.addEventListener("readystatechange", stateChange, false);
+                // prepare the request
+                xhr.open("GET", url, true);
+                // send the request
+                xhr.send(null);
+            // if request fails
+            } catch {
+                // send alert pop-up to user   
+                alert("Request failed.");
+            }
+        }
+
+        // displays the reponse data on the page
+        function stateChange() {
+            // if response operation is done
+            if (xhr.readyState == 4 && xhr.status == 200) {
+                // set src attribute of image with id=contentArea to be the url
+                document.querySelector('#contentArea').src = xhr.responseURL;
+            } 
+        }
+
+        // clears content (image) area
+        function clearContent() {
+            // set src attribute of image with id=contentArea to be empty
+            document.querySelector('#contentArea').src = "";
+        }
+
+        // when the page loads, run registerListeners function
+        window.addEventListener("load", registerListeners, false);
+    </script>
+</head>
+
+<body>
+    <div class="container">
+        <nav>
+            <ul>
+                <li><a href="index.html">Home</a></li>
+                <li><a href="about.html">About</a></li>
+                <li><a href="play.html">How I Play</a></li>
+                <li><a href="bosses.html">Bosses</a></li>
+                <li><a href="resources.html">Resources</a></li>
+                <li><a href="references.html">References</a></li>
+            </ul>
+        </nav>
+        <h1 class="heading">Bosses</h1>
+        <div class="centered">
+        <button class="boss-button" id="boss1">1st Boss</button>
+        <button class="boss-button" id="boss2">2nd Boss</button>
+        <button class="boss-button" id="boss3">3rd Boss</button>
+        <button class="boss-button" id="boss4">4th Boss</button>
+        <button class="boss-button" id="boss5">5th Boss</button>
+        <br><br><br>
+        <img id="contentArea" alt="" src="null">
+        </div>
+    </div>
+</body>
+</html>
+

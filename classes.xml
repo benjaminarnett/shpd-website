@@ -1,0 +1,39 @@
+<?xml version="1.0" encoding="ISO-8859-1"?>
+<classes>
+
+    <class>
+    	<name>Warrior</name>
+        <item>Broken Seal</item>
+        <sub1>Gladiator</sub1>
+        <sub2>Berserker</sub2>
+    </class>
+
+    <class>
+    	<name>Mage</name>
+        <item>Staff of Magic Missile</item>
+        <sub1>Battlemage</sub1>
+        <sub2>Warlock</sub2>
+    </class>
+
+    <class>
+    	<name>Rogue</name>
+        <item>Cloak of Shadows</item>
+        <sub1>Assassin</sub1>
+        <sub2>Freerunner</sub2>
+    </class>
+
+    <class>
+    	<name>Huntress</name>
+        <item>Spirit Bow</item>
+        <sub1>Sniper</sub1>
+        <sub2>Warden</sub2>
+    </class>
+
+    <class>
+    	<name>Duelist</name>
+        <item>Rapier</item>
+        <sub1>Champion</sub1>
+        <sub2>Monk</sub2>
+    </class>
+
+</classes>

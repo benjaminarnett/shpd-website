@@ -1,0 +1,106 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <title>Resources</title>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/3.4.1/css/bootstrap.min.css">
+    <link rel="stylesheet" href="style.css" type="text/css">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.7.1/jquery.min.js"></script>
+    <script src="https://code.jquery.com/ui/1.13.1/jquery-ui.min.js"></script>
+    <script>
+        // comments are above corresponding code
+
+        // array arr holds relative path to image files  
+        const arr = ['shattered.png', 'shattered(1).png', 'github-mark.png'];
+
+        /* function selects number 0 to 2 and assigns this to an index to randomly select a value, 
+           then placing the corresponding file path in the img element src, ensuring a random image is displayed */
+        function rand_img() {
+            /* generates a random value from 0 to 2; first by generating a floating point value from 0 to 1,  
+               multiplying this number by 3, and then rounding this value to the closest integer */
+            let num = Math.floor(Math.random() * 3);
+            // sets the random value to the index of the array to get a random image file path
+            let pic = arr[num];
+            // file path is set to the src of an img element which is set the text inside the element with id='random-image'
+            document.getElementById("random-image").innerHTML = `<img src=assets/${pic}>`;
+        }
+
+        // runs rand_img function when page is loaded
+        window.addEventListener("load", rand_img, false);
+    </script>
+</head>
+
+<body>
+    <div class="container">
+        <nav>
+            <ul>
+                <li><a href="index.html">Home</a></li>
+                <li><a href="about.html">About</a></li>
+                <li><a href="play.html">How I Play</a></li>
+                <li><a href="bosses.html">Bosses</a></li>
+                <li><a href="resources.html">Resources</a></li>
+                <li><a href="references.html">References</a></li>
+            </ul>
+        </nav>
+        <h1 class="heading">Resources</h1>
+        <div class="heading" id="random-image"></div>
+
+        <button id="game-basics">Game basics</button><br><br>
+        <button id="source-code">Game source code</button><br><br>
+        <button id="get-game">Get the game</button>
+
+        <div class="footer">
+            <p>This website is developed as an educational project</p>
+            <p>Certain materials are included under the fair use exemption of the U.S. Copyright Law and have been
+                prepared according to the multimedia fair use guidelines and are restricted from further use</p>
+            <a href="style.css">stylesheet code</a>
+        </div>
+    </div>
+    <script>
+        // comments are above corresponding code
+
+        // when element with id='game-basics' is click, execute reset_name function 
+        document.getElementById("game-basics").addEventListener("click", game_basics);
+        // when element with id='source-code' is click, execute source_code function 
+        document.getElementById("source-code").addEventListener("click", source_code);
+        // when element with id='get-game' is click, execute get_game function 
+        document.getElementById("get-game").addEventListener("click", get_game);
+
+        // function opens url (first argument in window.open) in a new window with height=800px and width 800px
+        function get_game() {
+            window.open("https://shatteredpixel.com/shatteredpd/", '_blank', 'popup,height=800,width=800');
+        }
+
+        // function opens url (first argument in window.open) in a new window with height=800px and width 800px
+        function source_code() {
+            window.open("https://github.com/00-Evan/shattered-pixel-dungeon", '_blank', 'popup,height=800,width=800');
+        }
+
+        // function opens url (first argument in window.open) in a new window with height=800px and width 800px
+        function game_basics() {
+            window.open("https://pixeldungeon.fandom.com/wiki/Shattered_Pixel_Dungeon", '_blank', 'popup,height=800,width=800');
+        }
+
+        // when div with id=random-image is clicked
+        $("#random-image").click(function() {
+            // shake div with id=random-image fast
+            $("#random-image").effect("shake", "fast")
+        })
+
+        // when div with id=random-image is clicked
+        $("#random-image").click(function() {
+            // animate div with id=random-image 
+            $("#random-image").animate({
+                // lower opacity by half
+                opacity: 0.5
+                // duration is 1500 milliseconds until animation finishes
+            }, 1500);
+        });
+
+    </script>
+</body>
+
+</html>
+

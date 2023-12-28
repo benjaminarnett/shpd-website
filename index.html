@@ -1,0 +1,78 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <title>Home</title>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/3.4.1/css/bootstrap.min.css">
+    <link rel="stylesheet" href="style.css" type="text/css">
+    <script>
+        // comments are above corresponding code
+
+        // function prompts user for name & welcomes user with greeting using said name
+        function welcome_user() {
+            // if there's no corresponding value for fname key
+            if (localStorage.getItem("fname") === null) {
+                // prompt user for name
+                let fname = prompt("Please enter your name:");
+                // enter input into value for fname key
+                localStorage.setItem("fname", fname);
+            }
+            // set text in element with id='welcome' to Welcome [fname value]
+            document.getElementById("welcome").innerHTML = "Welcome " + localStorage.getItem("fname");
+        }
+
+        // runs start function when page is loaded
+        window.addEventListener("load", welcome_user, false);
+    </script>
+</head>
+
+<body>
+    <div class="container">
+        <nav>
+            <ul>
+                <li><a href="index.html">Home</a></li>
+                <li><a href="about.html">About</a></li>
+                <li><a href="play.html">How I Play</a></li>
+                <li><a href="bosses.html">Bosses</a></li>
+                <li><a href="resources.html">Resources</a></li>
+                <li><a href="references.html">References</a></li>
+            </ul>
+        </nav>
+        <div class="heading blur"><a href="references.html#shpd-img"><img id="title-img" src="assets/SHPD-title.png"
+                    alt="Shattered Pixel Dungeon"></a></div>
+        <p class="heading">A traditional roguelike dungeon crawler</p>
+
+        <div id="middle">
+            <div id="welcome"></div>
+            <button id="reset-name">Reset name</button>
+        </div>
+
+        <div class="footer">
+            <p>This website is developed as an educational project</p>
+            <p>Certain materials are included under the fair use exemption of the U.S. Copyright Law and have been
+                prepared according to the multimedia fair use guidelines and are restricted from further use</p>
+            <a href="style.css">stylesheet code</a>
+        </div>
+    </div>
+    <script>
+        // comments are above corresponding code
+
+        // when element with id='reset-name' is click, execute reset_name function 
+        document.getElementById("reset-name").addEventListener("click", reset_name);
+
+        /* function prompts user to reset name, sets name in localStorage (value of fname), 
+           and replaces text inside element with id='welcome' */
+        function reset_name() {
+            // prompts user for name
+            let fname = prompt("Please enter your name:");
+            // enter input into value for fname key
+            localStorage.setItem("fname", fname);
+            // set text in element with id='welcome' to Welcome [fname value]
+            document.getElementById("welcome").innerHTML = "Welcome " + localStorage.getItem("fname");
+        }
+    </script>
+</body>
+
+</html>

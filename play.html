@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <title>How I Play</title>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/3.4.1/css/bootstrap.min.css">
+    <link rel="stylesheet" href="style.css" type="text/css">
+    <script>
+        // comments are above corresponding code
+
+        // variable represents the width and height of the image animated
+        var base = 125;
+        
+        // function called every interval, increases image size each time
+        function animate() {
+            // image width and height increase by 5px every interval
+            base += 5;
+            // set width and height of mage image to base 
+            document.getElementById("mage").setAttribute("style", "width:" + base + "px; height:" + base + "px;");
+            
+            // if width/height are 165px or higher
+            if (base >= 165) {
+                // stop interval from executing animate function
+                clearInterval(interval);
+                // set interval to 0 to ensure it will not run again
+                interval = 0;    
+            } 
+        }
+
+        // function displays when the last date/time the document play.html was modified
+        function start() {
+            // input's assigned string to div's (with id last-modified) contents  
+            document.getElementById("last-modified").innerHTML = "This document was last modified " + document.lastModified;
+        }
+
+        // runs start function when page is loaded
+        window.addEventListener("load", start, false); 
+        // animate function runs every second
+        var interval = setInterval(animate, 1000);
+    </script>
+</head>
+
+<body>
+    <div class="container">
+        <nav>
+            <ul>
+                <li><a href="index.html">Home</a></li>
+                <li><a href="about.html">About</a></li>
+                <li><a href="play.html">How I Play</a></li>
+                <li><a href="bosses.html">Bosses</a></li>
+                <li><a href="resources.html">Resources</a></li>
+                <li><a href="references.html">References</a></li>
+            </ul>
+        </nav>
+        <h1 class="heading">How I Play</h1>
+        <h3>Class</h3>
+        <div class="blur"><a href="references.html#mage-img"><img id="mage" src="assets/Mage.png" alt="Mage"></a></div>
+        <p>I play Mage, and the subclass Warlock.</p>
+        <h3>Artifacts</h3>
+        <div class="blur"><a href="references.html#horn-img"><img id="horn" src="assets/Horn_of_Plenty.png"
+                    alt="Horn_of_Plenty"></a></div>
+        <p>The Horn of Plenty generates food. When food is sacrificed to it, it levels up.</p>
+        <br>
+        <div id="last-modified"></div>
+        <div class="footer">
+            <p>This website is developed as an educational project</p>
+            <p>Certain materials are included under the fair use exemption of the U.S. Copyright Law and have been
+                prepared according to the multimedia fair use guidelines and are restricted from further use</p>
+            <a href="style.css">stylesheet code</a>
+        </div>
+    </div>
+</body>
+
+</html>
