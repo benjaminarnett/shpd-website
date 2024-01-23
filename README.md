@@ -14,6 +14,8 @@ The website has six pages total and one data file:
 - references.html: References page provides links for the references used
 - classes.xml: Stores information related to character classes and subclasses player can choose 
 
+### Features
+
 As part of the requirements of the project, several features have been implemented for the purpose of gaining a deeper understand JavaScript and related technologies, including the following:
  
 - Bootstrap (all pages)
