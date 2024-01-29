@@ -1,6 +1,6 @@
-# Shattered Pixel Dungeon Fansite
+# Shattered Pixel Dungeon Enthusiast Site
 
-This website was part of my final project for my IT 331 class (Web I: Web Development). It's dedicated to my appreciation of [Shattered Pixel Dungeon](https://github.com/00-Evan/shattered-pixel-dungeon), an open-source roguelike I've enjoyed playing on my phone. 
+This website was part of my final project for my IT 331 (Web I: Web Development) class. It's dedicated to my appreciation of [Shattered Pixel Dungeon](https://github.com/00-Evan/shattered-pixel-dungeon), an open-source roguelike I've enjoyed playing on my phone. 
 
 <img src="assets/sc.png" width="500"/>
 
