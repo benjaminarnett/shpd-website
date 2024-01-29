@@ -30,7 +30,7 @@ As part of the requirements of the project, several features have been implement
     - decreases opacity of image when clicked after 1500 milliseconds via `animate()`
 - XMLHttpRequest (Bosses page)
     - `mouseover` triggers request
-    - async reponse returns file path of boss image, populating the image src attribute 
+    - reponse returns file path of boss image, populating the image src attribute 
     - `mouseover` clears the path and thus the image
 - localStorage (Landing page)
     - prompts user for their name and stores in the input via `localStorage.setItem()`
